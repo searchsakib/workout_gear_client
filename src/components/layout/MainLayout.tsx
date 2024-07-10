@@ -1,10 +1,9 @@
-import { Button } from '../ui/button';
+import Header from '../Header/Header';
 
 const MainLayout = () => {
   return (
     <div className='bg-primary-gradient h-screen'>
-      <h2>This is MainLayout component</h2>
-      <Button>Main Button</Button>
+      <Header></Header>
     </div>
   );
 };
