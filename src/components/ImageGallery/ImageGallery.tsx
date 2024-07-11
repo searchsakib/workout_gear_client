@@ -9,10 +9,10 @@ const ImageGallery = () => {
   return (
     <div className="py-8 md:py-12">
       <Container>
-        <h2 className="mb-6 text-center text-3xl font-bold md:mb-8 md:text-4xl lg:mb-12 lg:text-5xl">
+        <h2 className="mb-8 text-center text-3xl font-bold md:mb-8 md:text-4xl lg:mb-12 lg:text-5xl">
           Trusted by Gym Bros
         </h2>
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3 lg:grid-cols-4 lg:gap-4">
+        <div className="grid grid-cols-2 gap-2 sm:gap-3 md:grid-cols-4 md:gap-4 lg:grid-cols-4 lg:gap-4">
           <div className="col-span-2 row-span-2 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-2">
             <img
               src={galleryImage1}
