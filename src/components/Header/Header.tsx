@@ -74,7 +74,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="mx-auto flex max-w-screen-2xl flex-row-reverse items-center justify-between px-3 py-10 text-white md:px-6 xl:flex-row">
+    <div className="mx-auto flex max-w-screen-xl flex-row-reverse items-center justify-between px-3 py-10 text-white md:px-6 xl:flex-row">
       <div>
         <Link to="/">
           <div className="flex items-center gap-1 font-mono text-2xl">
