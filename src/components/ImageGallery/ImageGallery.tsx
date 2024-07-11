@@ -7,7 +7,7 @@ import galleryImage5 from "/images/gallery-image-5.jpg";
 
 const ImageGallery = () => {
   return (
-    <div className="py-8 md:py-12">
+    <div className="py-8 md:pb-24 md:pt-12">
       <Container>
         <h2 className="mb-8 text-center text-3xl font-bold md:mb-8 md:text-4xl lg:mb-12 lg:text-5xl">
           Trusted by Gym Bros
