@@ -51,6 +51,9 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.4)
     devDependencies:
+      '@types/aos':
+        specifier: ^3.0.7
+        version: 3.0.7
       '@types/node':
         specifier: ^20.14.10
         version: 20.14.10
@@ -535,6 +538,9 @@ packages:
     resolution: {integrity: sha512-yjk2MAkQmoaPYCSu35RLJ62+dz358nE83VfTePJRp8CG7aMg25mEJYpXFiD+NcevhX8LxD5OP5tktPXnXN7GDw==}
     cpu: [x64]
     os: [win32]
+
+  '@types/aos@3.0.7':
+    resolution: {integrity: sha512-sEhyFqvKauUJZDbvAB3Pggynrq6g+2PS4XB3tmUr+mDL1gfDJnwslUC4QQ7/l8UD+LWpr3RxZVR/rHoZrLqZVg==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -2029,6 +2035,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.18.1':
     optional: true
+
+  '@types/aos@3.0.7': {}
 
   '@types/babel__core@7.20.5':
     dependencies:
