@@ -11,5 +11,3 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-
-// bg-[#07001f]
