@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
     <Container>
       <div className="pb-5">
         <h2 className="pb-8 pt-16 text-center text-5xl font-bold">
-          Featured Products
+          Featured Gears
         </h2>
         {isLoading ? (
           <div className="p-3 text-center">
