@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Container from "../ui/Container";
 
 const Banner = () => {
@@ -28,9 +29,11 @@ const Banner = () => {
           </h2>
         </div>
         <div>
-          <button className="btn-lg my-10 bg-gradient-to-r from-rose-500 to-blue-600">
-            Shop Now
-          </button>
+          <Link to="/products">
+            <button className="btn btn-lg my-10 rounded-none bg-gradient-to-r from-rose-500 to-blue-600 text-white hover:from-rose-600 hover:to-blue-700">
+              Shop Now
+            </button>
+          </Link>
         </div>
       </div>
     </Container>
