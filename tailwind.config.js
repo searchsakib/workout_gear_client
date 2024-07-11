@@ -72,9 +72,9 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       backgroundImage: {
-        'primary-gradient': 'linear-gradient(170deg, #000428, #1a1a2e)',
+        'primary-gradient': 'linear-gradient(170deg, #131842, #1a1a2e)',
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [require('tailwindcss-animate'), require('daisyui')],
 };
