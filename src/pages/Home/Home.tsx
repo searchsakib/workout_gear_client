@@ -1,7 +1,11 @@
+import Banner from "@/components/Banner/Banner";
+
 const Home = () => {
   return (
-    <div className='text-white text-3xl'>
-      <h2>This is Home component</h2>
+    <div className="text-3xl text-white">
+      <div>
+        <Banner></Banner>
+      </div>
     </div>
   );
 };

@@ -1,9 +1,9 @@
-import { Outlet } from 'react-router-dom';
-import Header from '../Header/Header';
+import { Outlet } from "react-router-dom";
+import Header from "../Header/Header";
 
 const MainLayout = () => {
   return (
-    <div className='bg-primary-gradient h-screen text-white'>
+    <div className="h-screen bg-primary-gradient text-white">
       <Header></Header>
       <Outlet></Outlet>
     </div>
