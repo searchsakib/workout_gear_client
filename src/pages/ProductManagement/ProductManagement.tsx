@@ -120,15 +120,15 @@ const ProductManagement: React.FC = () => {
           )}
         </div>
         <div className="flex flex-col items-center">
-          <div className="mb-6">
+          <div className="mb-6 flex w-full justify-end">
             <button
               onClick={() => setIsAdding(true)}
-              className="justify-end rounded-md bg-[#1a1a2e] px-4 py-2 font-semibold text-white outline outline-1 hover:bg-white hover:text-[#1a1a2e]"
+              className="rounded-md bg-[#1a1a2e] px-4 py-2 font-semibold text-white outline outline-1 hover:bg-white hover:text-[#1a1a2e]"
             >
               Add New Product
             </button>
           </div>
-          <div>
+          <div className="min-w-full">
             <ProductTable
               products={products?.data || []}
               onDelete={handleDeleteProduct}
