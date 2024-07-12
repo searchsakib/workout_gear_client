@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "/icon.svg";
 import Container from "../ui/Container";
 
 const Footer = () => {
@@ -11,7 +12,7 @@ const Footer = () => {
               <div className="flex items-center gap-1 font-mono text-2xl">
                 <h2>Workout</h2>
                 <div className="max-w-10">
-                  <img src="/public/icon.svg" alt="logo image" />
+                  <img src={logo} alt="logo" />
                 </div>
                 <h2>Gear</h2>
               </div>
