@@ -1,6 +1,6 @@
 import { useGetProductsQuery } from "@/redux/api/baseApi";
 import Container from "../ui/Container";
-import { TData } from "@/types";
+import { TProduct } from "@/types";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Aos from "aos";
@@ -29,7 +29,7 @@ const FeaturedProducts = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-4 py-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {products?.data?.slice(0, 4).map((product: TData) => (
+            {products?.data?.slice(0, 4).map((product: TProduct) => (
               <div
                 key={product._id}
                 className="relative overflow-hidden rounded-lg border border-gray-700 bg-gray-800 shadow-lg"

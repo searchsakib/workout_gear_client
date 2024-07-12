@@ -17,7 +17,7 @@ const CategorySection = () => {
     { name: "fitness", icon: FaHeartbeat },
     { name: "hydration", icon: FaBottleWater },
     { name: "cardio", icon: FaRunning },
-    { name: "Accessories", icon: GiGymBag },
+    { name: "accessories", icon: GiGymBag },
     { name: "treadmills", icon: TbTreadmill },
   ];
 

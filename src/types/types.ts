@@ -12,7 +12,7 @@ export type TRouter = {
   children?: TChildren[];
 };
 
-export type TData = {
+export type TProduct = {
   _id: string;
   name: string;
   price: number;
@@ -23,5 +23,5 @@ export type TData = {
 };
 
 export type TinitialState = {
-  data: TData[];
+  selectedProduct: TProduct | null;
 };

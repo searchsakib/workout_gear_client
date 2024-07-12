@@ -10,16 +10,47 @@ export const baseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "https://workout-gear-server.vercel.app/api/v1",
   }),
-  tagTypes: ["products"],
+  tagTypes: ["Product"],
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: () => ({
         url: "/products",
         method: "GET",
       }),
-      providesTags: ["products"],
+      providesTags: ["Product"],
+    }),
+    addProducts: builder.mutation({
+      query: (product) => {
+        console.log("Add Product =>", product);
+        return {
+          url: "/products",
+          method: "POST",
+          body: product,
+        };
+      },
+      invalidatesTags: ["Product"],
+    }),
+    updateProduct: builder.mutation({
+      query: ({ id, ...product }) => ({
+        url: `/products/${id}`,
+        method: "PUT",
+        body: product,
+      }),
+      invalidatesTags: ["Product"],
+    }),
+    deleteProduct: builder.mutation({
+      query: (id) => ({
+        url: `/products/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Product"],
     }),
   }),
 });
 
-export const { useGetProductsQuery }: { useGetProductsQuery: any } = baseApi;
+export const {
+  useGetProductsQuery,
+  useAddProductsMutation,
+  useUpdateProductMutation,
+  useDeleteProductMutation,
+} = baseApi;

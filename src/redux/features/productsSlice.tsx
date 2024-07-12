@@ -1,12 +1,20 @@
-import { TinitialState } from "@/types";
-import { createSlice } from "@reduxjs/toolkit";
+import { TProduct, TinitialState } from "@/types";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: TinitialState = {
-  data: [],
+  selectedProduct: null,
 };
 
-export const productsSlice = createSlice({
+const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    setSelectedProduct: (state, action: PayloadAction<TProduct | null>) => {
+      state.selectedProduct = action.payload;
+    },
+  },
 });
+
+export const { setSelectedProduct } = productsSlice.actions;
+
+export default productsSlice.reducer;
