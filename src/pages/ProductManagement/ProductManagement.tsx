@@ -11,6 +11,7 @@ import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
 import Swal from "sweetalert2";
 import Container from "@/components/ui/Container";
+import { Helmet } from "react-helmet-async";
 
 const ProductManagement: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -97,6 +98,9 @@ const ProductManagement: React.FC = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Workout Gear | Product Management</title>
+      </Helmet>
       <div className="container mx-auto pb-20 pt-8 text-black">
         <h1 className="mb-10 text-center text-4xl font-bold text-white">
           Product Management
