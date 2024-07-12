@@ -101,7 +101,11 @@ const ProductManagement: React.FC = () => {
         <h1 className="mb-10 text-center text-4xl font-bold text-white">
           Product Management
         </h1>
-        {isLoading && <div>Loading...</div>}
+        {isLoading && (
+          <div className="p-3 text-center">
+            <span className="loading loading-ball loading-lg text-white"></span>
+          </div>
+        )}
         {error && <div>Error...</div>}
 
         <div className="mb-6">
