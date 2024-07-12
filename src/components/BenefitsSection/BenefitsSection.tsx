@@ -1,11 +1,17 @@
-import Container from "../ui/Container"; // Assuming you have a Container component
-import benefitImage1 from "/images/benefit-image-1.jpg"; // Import your benefit images
-import benefitImage2 from "/images/benefit-image-2.jpg"; // Adjust paths accordingly
-import benefitImage3 from "/images/benefit-image-3.jpg"; // Adjust paths accordingly
+import Container from "../ui/Container";
+import benefitImage1 from "/images/benefit-image-1.jpg";
+import benefitImage2 from "/images/benefit-image-2.jpg";
+import benefitImage3 from "/images/benefit-image-3.jpg";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const BenefitsSection = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
-    <div className="py-16">
+    <div data-aos="fade-up" className="py-16">
       <Container>
         <h2 className="mb-12 text-center text-5xl font-bold">
           Equipment Benefits

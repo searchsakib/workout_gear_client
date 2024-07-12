@@ -4,8 +4,14 @@ import { FaBottleWater } from "react-icons/fa6";
 import { GiGymBag } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import Container from "../ui/Container";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const CategorySection = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const categories = [
     { name: "weights", icon: FaDumbbell },
     { name: "fitness", icon: FaHeartbeat },
@@ -21,7 +27,10 @@ const CategorySection = () => {
         <h2 className="pb-14 text-center text-5xl font-bold">
           Shop by Category
         </h2>
-        <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
+        <div
+          data-aos="fade-up"
+          className="grid grid-cols-2 gap-5 md:grid-cols-3"
+        >
           {categories.map((category, index) => (
             <Link
               key={index}

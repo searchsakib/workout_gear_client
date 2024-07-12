@@ -5,6 +5,7 @@ import teamImage3 from "/images/img3.png";
 import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { Helmet } from "react-helmet-async";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -12,6 +13,9 @@ const AboutUs = () => {
   }, []);
   return (
     <div className="overflow-hidden">
+      <Helmet>
+        <title>Workout Gear | About Us</title>
+      </Helmet>
       {/* Hero Section */}
       <div
         className="relative h-96 bg-cover bg-center"

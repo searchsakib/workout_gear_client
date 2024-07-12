@@ -1,9 +1,15 @@
 import { useGetProductsQuery } from "@/redux/api/baseApi";
 import Container from "../ui/Container";
 import { TData } from "@/types";
-import { Link } from "react-router-dom"; // Assuming you are using React Router for navigation
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const FeaturedProducts = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   const { data: products, isLoading, isError } = useGetProductsQuery(undefined);
 
   if (isError) return <div>Error</div>;
@@ -11,7 +17,10 @@ const FeaturedProducts = () => {
   return (
     <Container>
       <div className="pb-5">
-        <h2 className="pb-8 pt-16 text-center text-5xl font-bold">
+        <h2
+          data-aos="fade-right"
+          className="pb-8 pt-16 text-center text-5xl font-bold"
+        >
           Featured Gears
         </h2>
         {isLoading ? (

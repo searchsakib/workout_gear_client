@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
-    <div className="overflow-x-hidden text-3xl text-white">
+    <div className="overflow-hidden text-3xl text-white">
       <Helmet>
         <title>Workout Gear | Home</title>
       </Helmet>
