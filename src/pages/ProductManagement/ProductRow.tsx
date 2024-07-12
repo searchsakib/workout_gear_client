@@ -11,13 +11,13 @@ const ProductRow: React.FC<ProductRowProps> = ({ product, onDelete }) => {
 
   return (
     <tr key={product._id}>
-      <td className="border-b px-4 py-2">{product.name}</td>
-      <td className="border-b px-4 py-2">${product.price}</td>
-      <td className="border-b px-4 py-2">{product.category}</td>
-      <td className="space-x-2 border-b px-4 py-2">
+      <td className="border-b px-6 py-4">{product.name}</td>
+      <td className="border-b px-6 py-4">${product.price}</td>
+      <td className="border-b px-6 py-4">{product.category}</td>
+      <td className="border-b px-6 py-4 text-center">
         <button
           onClick={() => dispatch(setSelectedProduct(product))}
-          className="rounded-md bg-[#0450a2] px-4 py-2 text-white"
+          className="mx-2 my-2 rounded-md bg-[#0450a2] px-4 py-2 text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const ProductRow: React.FC<ProductRowProps> = ({ product, onDelete }) => {
         </button>
         <button
           onClick={() => onDelete(product._id)}
-          className="rounded-md bg-[#ba1626] px-4 py-2 text-white"
+          className="mx-2 my-2 rounded-md bg-[#ba1626] px-4 py-2 text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
