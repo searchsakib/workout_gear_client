@@ -97,7 +97,7 @@ const ProductManagement: React.FC = () => {
 
   return (
     <Container>
-      <div className="container mx-auto p-8 text-black">
+      <div className="container mx-auto pb-20 pt-8 text-black">
         <h1 className="mb-10 text-center text-4xl font-bold text-white">
           Product Management
         </h1>
