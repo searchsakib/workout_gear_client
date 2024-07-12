@@ -11,9 +11,21 @@ const ProductRow: React.FC<ProductRowProps> = ({ product, onDelete }) => {
 
   return (
     <tr key={product._id}>
-      <td className="border-b px-6 py-4">{product.name}</td>
-      <td className="border-b px-6 py-4">${product.price}</td>
-      <td className="border-b px-6 py-4">{product.category}</td>
+      <td className="border-b px-6 py-4">
+        <div>{product.name}</div>
+        <div className="block md:hidden">
+          <div className="text-sm text-gray-300">Price: ${product.price}</div>
+          <div className="text-sm text-gray-300">
+            Category: {product.category}
+          </div>
+        </div>
+      </td>
+      <td className="hidden border-b px-6 py-4 md:table-cell">
+        ${product.price}
+      </td>
+      <td className="hidden border-b px-6 py-4 md:table-cell">
+        {product.category}
+      </td>
       <td className="border-b px-6 py-4 text-center">
         <button
           onClick={() => dispatch(setSelectedProduct(product))}

@@ -7,13 +7,17 @@ interface ProductTableProps {
 
 const ProductTable: React.FC<ProductTableProps> = ({ products, onDelete }) => {
   return (
-    <div>
-      <table className="border border-gray-200">
+    <div className="overflow-x-auto">
+      <table className="min-w-full border border-gray-200">
         <thead className="bg-[#1a1a2e] text-white">
           <tr className="border border-b">
             <th className="px-6 py-3 text-left font-medium">Name</th>
-            <th className="px-6 py-3 text-left font-medium">Price</th>
-            <th className="px-6 py-3 text-left font-medium">Category</th>
+            <th className="hidden px-6 py-3 text-left font-medium md:table-cell">
+              Price
+            </th>
+            <th className="hidden px-6 py-3 text-left font-medium md:table-cell">
+              Category
+            </th>
             <th className="px-6 py-3 text-center font-medium">Actions</th>
           </tr>
         </thead>
