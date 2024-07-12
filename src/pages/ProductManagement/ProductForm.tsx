@@ -82,6 +82,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
           required
           type="number"
           name="price"
+          min="1"
           value={formData.price}
           onChange={handleChange}
           className="mt-1 block w-full rounded-md border border-gray-300 bg-slate-800 p-2"
@@ -131,6 +132,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
           required
           type="number"
           name="stock"
+          min="1"
           value={formData.stock}
           onChange={handleChange}
           className="mt-1 block w-full rounded-md border bg-slate-800 p-2"
