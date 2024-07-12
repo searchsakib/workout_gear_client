@@ -1,5 +1,6 @@
 import { setSelectedProduct } from "@/redux/features/productsSlice";
 import { useAppDispatch } from "@/redux/hooks";
+import Swal from "sweetalert2";
 
 interface ProductRowProps {
   product: any;
@@ -28,7 +29,19 @@ const ProductRow: React.FC<ProductRowProps> = ({ product, onDelete }) => {
       </td>
       <td className="border-b px-6 py-4 text-center">
         <button
-          onClick={() => dispatch(setSelectedProduct(product))}
+          onClick={() => {
+            dispatch(setSelectedProduct(product));
+            Swal.fire({
+              position: "top-end",
+              color: "#fff",
+              iconColor: "#fff",
+              background: "#09335c",
+              confirmButtonColor: "#1e609e",
+              title: `Update Product Form opened at the top! Scroll up`,
+              showConfirmButton: false,
+              timer: 2000,
+            });
+          }}
           className="mx-2 my-2 rounded-md bg-[#0450a2] px-4 py-2 text-white"
         >
           <svg
