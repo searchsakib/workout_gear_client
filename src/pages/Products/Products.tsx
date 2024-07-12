@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import { useGetProductsQuery } from "@/redux/api/baseApi";
 import { TProduct } from "@/types";
+import Container from "@/components/ui/Container";
+import { Helmet } from "react-helmet-async";
 
 const categories = [
   "weights",
@@ -136,62 +138,67 @@ const Products: React.FC = () => {
   if (error) return <div>Error</div>;
 
   return (
-    <div className="container mx-auto pt-8">
-      <div className="mt-8 flex justify-center">
-        <p className="text-3xl text-white">
-          Showing {filteredProducts.length} product(s)
-        </p>
-      </div>
-      <div className="mb-6 flex items-center justify-between">
-        <input
-          type="text"
-          placeholder="Search by product name"
-          value={searchTerm}
-          onChange={handleSearch}
-          className="mr-4 rounded-md border border-gray-300 px-4 py-2"
-        />
-        <div className="flex">
-          <div className="mr-4">
-            <select
-              value={sortOption}
-              onChange={handleSortChange}
-              className="rounded-md border border-gray-300 px-4 py-2"
+    <Container>
+      <Helmet>
+        <title>Workout Gear | Products</title>
+      </Helmet>
+      <div className="container mx-auto pb-16 pt-8">
+        <div className="mb-8 mt-5 flex justify-center">
+          <p className="mb-8 text-3xl text-white">
+            Showing {filteredProducts.length} product(s)
+          </p>
+        </div>
+        <div className="mb-7 flex items-center justify-between">
+          <input
+            type="text"
+            placeholder="Search by product name"
+            value={searchTerm}
+            onChange={handleSearch}
+            className="mr-4 rounded-md border border-gray-300 px-4 py-2"
+          />
+          <div className="flex">
+            <div className="mr-4">
+              <select
+                value={sortOption}
+                onChange={handleSortChange}
+                className="cursor-pointer rounded-md border border-gray-300 px-3 py-2"
+              >
+                <option value="">Sort by Price</option>
+                <option value="priceAsc">Low to High</option>
+                <option value="priceDesc">High to Low</option>
+              </select>
+            </div>
+            <button
+              onClick={clearFilters}
+              className="rounded-md bg-transparent px-4 py-2 text-white outline outline-1 hover:bg-gray-800"
             >
-              <option value="">Sort by Price</option>
-              <option value="priceAsc">Price: Low to High</option>
-              <option value="priceDesc">Price: High to Low</option>
-            </select>
+              Clear Filters
+            </button>
           </div>
-          <button
-            onClick={clearFilters}
-            className="rounded-md bg-gray-800 px-4 py-2 text-white outline outline-1 hover:bg-gray-700"
-          >
-            Clear Filters
-          </button>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          {/* Category Filters */}
+          <div className="mb-4 flex flex-col gap-3 bg-blue-950 p-5">
+            {categories.map((category) => (
+              <label key={category} className="mr-4 inline-flex items-center">
+                <input
+                  type="checkbox"
+                  checked={selectedCategories.includes(category)}
+                  onChange={() => handleCategoryFilter(category)}
+                  className="form-checkbox h-5 w-5 text-blue-500"
+                />
+                <span className="ml-2 text-white">{category}</span>
+              </label>
+            ))}
+          </div>
+
+          {filteredProducts.map((product) => (
+            <ProductCard key={product?._id} product={product} />
+          ))}
         </div>
       </div>
-
-      {/* Category Filters */}
-      <div className="mb-4 flex">
-        {categories.map((category) => (
-          <label key={category} className="mr-4 inline-flex items-center">
-            <input
-              type="checkbox"
-              checked={selectedCategories.includes(category)}
-              onChange={() => handleCategoryFilter(category)}
-              className="form-checkbox h-5 w-5 text-blue-500"
-            />
-            <span className="ml-2 text-white">{category}</span>
-          </label>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {filteredProducts.map((product) => (
-          <ProductCard key={product?._id} product={product} />
-        ))}
-      </div>
-    </div>
+    </Container>
   );
 };
 
