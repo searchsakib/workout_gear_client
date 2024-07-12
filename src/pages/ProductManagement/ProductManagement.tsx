@@ -10,6 +10,7 @@ import { useState } from "react";
 import ProductForm from "./ProductForm";
 import ProductTable from "./ProductTable";
 import Swal from "sweetalert2";
+import Container from "@/components/ui/Container";
 
 const ProductManagement: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -95,38 +96,42 @@ const ProductManagement: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-8 text-black">
-      <h1 className="mb-6 text-2xl font-bold">Product Management</h1>
-      {isLoading && <div>Loading...</div>}
-      {error && <div>Error...</div>}
-      <div className="mb-6 flex justify-end">
-        <button
-          onClick={() => setIsAdding(true)}
-          className="rounded-md bg-green-500 px-4 py-2 text-white"
-        >
-          Add New Product
-        </button>
+    <Container>
+      <div className="container mx-auto p-8 text-black">
+        <h1 className="mb-10 text-center text-4xl font-bold text-white">
+          Product Management
+        </h1>
+        {isLoading && <div>Loading...</div>}
+        {error && <div>Error...</div>}
+        <div className="mb-6 flex justify-end">
+          <button
+            onClick={() => setIsAdding(true)}
+            className="rounded-md bg-[#1a1a2e] px-4 py-2 font-semibold text-white outline outline-1 hover:bg-white hover:text-[#1a1a2e]"
+          >
+            Add New Product
+          </button>
+        </div>
+        <div className="mb-6">
+          {isAdding && (
+            <ProductForm
+              onSubmit={handleAddProduct}
+              onCancel={() => setIsAdding(false)}
+            />
+          )}
+          {selectedProduct && (
+            <ProductForm
+              product={selectedProduct}
+              onSubmit={handleUpdateProduct}
+              onCancel={() => dispatch(setSelectedProduct(null))}
+            />
+          )}
+        </div>
+        <ProductTable
+          products={products?.data || []}
+          onDelete={handleDeleteProduct}
+        />
       </div>
-      <div className="mb-6">
-        {isAdding && (
-          <ProductForm
-            onSubmit={handleAddProduct}
-            onCancel={() => setIsAdding(false)}
-          />
-        )}
-        {selectedProduct && (
-          <ProductForm
-            product={selectedProduct}
-            onSubmit={handleUpdateProduct}
-            onCancel={() => dispatch(setSelectedProduct(null))}
-          />
-        )}
-      </div>
-      <ProductTable
-        products={products?.data || []}
-        onDelete={handleDeleteProduct}
-      />
-    </div>
+    </Container>
   );
 };
 
