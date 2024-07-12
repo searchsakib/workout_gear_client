@@ -65,63 +65,57 @@ const ProductForm: React.FC<ProductFormProps> = ({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 text-white">
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Name</label>
+      <div className="text-lg text-white">
+        <label className="block font-medium text-gray-200">Name</label>
         <input
           required
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+          className="mt-1 block w-full rounded-md border border-gray-300 bg-slate-800 p-2"
         />
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Price</label>
+      <div className="text-lg text-white">
+        <label className="block font-medium text-gray-200">Price</label>
         <input
           required
           type="number"
           name="price"
           value={formData.price}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+          className="mt-1 block w-full rounded-md border border-gray-300 bg-slate-800 p-2"
         />
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Description
-        </label>
+      <div className="text-lg text-white">
+        <label className="block font-medium text-gray-200">Description</label>
         <textarea
           required
           name="description"
           value={formData.description}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+          className="mt-1 block w-full rounded-md border border-gray-300 bg-slate-800 p-2"
         />
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Images
-        </label>
+      <div className="text-lg text-white">
+        <label className="block font-medium text-gray-200">Images</label>
         <input
           required
           type="text"
           name="images"
           value={formData.images}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+          className="mt-1 block w-full rounded-md border border-gray-300 bg-slate-800 p-2"
         />
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">
-          Category
-        </label>
+      <div className="text-lg text-white">
+        <label className="block font-medium text-gray-200">Category</label>
         <select
           required
           name="category"
           value={formData.category}
           onChange={handleCategoryChange}
-          className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+          className="mt-1 block w-full rounded-md border border-gray-300 bg-slate-800 p-2"
         >
           <option value="">Select Category</option>
           {categories.map((category) => (
@@ -131,28 +125,28 @@ const ProductForm: React.FC<ProductFormProps> = ({
           ))}
         </select>
       </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700">Stock</label>
+      <div className="text-lg text-white">
+        <label className="block font-medium text-gray-200">Stock</label>
         <input
           required
           type="number"
           name="stock"
           value={formData.stock}
           onChange={handleChange}
-          className="mt-1 block w-full rounded-md border border-gray-300 p-2"
+          className="mt-1 block w-full rounded-md border bg-slate-800 p-2"
         />
       </div>
       <div className="flex justify-end space-x-4">
         <button
           type="button"
           onClick={onCancel}
-          className="rounded-md bg-gray-300 px-4 py-2"
+          className="btn rounded-md bg-rose-700 px-4 py-2 text-white hover:outline hover:outline-1"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="rounded-md bg-blue-500 px-4 py-2 text-white"
+          className="rounded-md bg-sky-800 px-4 py-2 text-white hover:bg-sky-950 hover:outline hover:outline-1"
         >
           Submit
         </button>

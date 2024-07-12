@@ -34,7 +34,7 @@ const ProductManagement: React.FC = () => {
           color: "#fff",
           iconColor: "#fff",
           background: "#09335c",
-          confirmButtonColor: "#3085d6",
+          confirmButtonColor: "#1e609e",
           title: `Product added Successfully!`,
           showConfirmButton: false,
           timer: 1500,
@@ -54,7 +54,7 @@ const ProductManagement: React.FC = () => {
           color: "#fff",
           iconColor: "#fff",
           background: "#09335c",
-          confirmButtonColor: "#3085d6",
+          confirmButtonColor: "#1e609e",
           title: `Product Updated Successfully!`,
           showConfirmButton: false,
           timer: 1500,
@@ -72,7 +72,7 @@ const ProductManagement: React.FC = () => {
       iconColor: "#fff",
       background: "#09335c",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#1e609e",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
@@ -87,7 +87,7 @@ const ProductManagement: React.FC = () => {
               color: "#fff",
               iconColor: "#fff",
               background: "#09335c",
-              confirmButtonColor: "#3085d6",
+              confirmButtonColor: "#1e609e",
             });
           }
         });
