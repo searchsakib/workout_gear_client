@@ -2,10 +2,16 @@ import Container from "@/components/ui/Container";
 import teamImage1 from "/images/img1.png";
 import teamImage2 from "/images/img2.png";
 import teamImage3 from "/images/img3.png";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const AboutUs = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
   return (
-    <div>
+    <div className="overflow-hidden">
       {/* Hero Section */}
       <div
         className="relative h-96 bg-cover bg-center"
@@ -20,7 +26,7 @@ const AboutUs = () => {
       </div>
 
       {/* Company Overview */}
-      <div className="py-16">
+      <div data-aos="fade-up" className="py-16">
         <Container>
           <div className="text-center">
             <h2 className="mb-6 text-4xl font-bold text-gray-100">
@@ -62,7 +68,7 @@ const AboutUs = () => {
             Meet Our Team
           </h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-            <div className="text-center">
+            <div data-aos="fade-right" className="text-center">
               <img
                 src={teamImage1}
                 alt="John Miller"
@@ -75,7 +81,7 @@ const AboutUs = () => {
                 is passionate about helping people achieve their health goals.
               </p>
             </div>
-            <div className="text-center">
+            <div data-aos="fade-up" className="text-center">
               <img
                 src={teamImage2}
                 alt="Jane Smith"
@@ -88,7 +94,7 @@ const AboutUs = () => {
                 the word about our innovative fitness solutions.
               </p>
             </div>
-            <div className="text-center">
+            <div data-aos="fade-right" className="text-center">
               <img
                 src={teamImage3}
                 alt="Emily Johnson"
@@ -116,7 +122,10 @@ const AboutUs = () => {
             </h1>
           </div>
           <div className="container mx-auto grid grid-cols-1 gap-5 md:px-10 md:pb-10 lg:grid-cols-2 lg:gap-20">
-            <div className="mx-12 flex flex-col items-center lg:mx-0">
+            <div
+              data-aos="fade-left"
+              className="mx-12 flex flex-col items-center lg:mx-0"
+            >
               <div className="relative text-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -142,9 +151,12 @@ const AboutUs = () => {
                 </svg>
               </div>
               <span className="my-2 h-1 w-12 rounded-lg dark:bg-violet-600"></span>
-              <p>Leroy Jenkins</p>
+              <p>Leroy Rashford</p>
             </div>
-            <div className="mx-12 flex max-w-lg flex-col items-center lg:mx-0">
+            <div
+              data-aos="fade-right"
+              className="mx-12 flex max-w-lg flex-col items-center lg:mx-0"
+            >
               <div className="relative text-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -181,14 +193,14 @@ const AboutUs = () => {
                 </svg>
               </div>
               <span className="my-2 h-1 w-12 rounded-lg dark:bg-violet-600"></span>
-              <p>Leroy Jenkins</p>
+              <p>Andrew Wniteshaw</p>
             </div>
           </div>
         </Container>
       </div>
 
       {/* Contact Section */}
-      <div className="py-16">
+      <div data-aos="fade-up" className="py-16">
         <Container>
           <div className="mx-auto grid max-w-6xl grid-cols-1 px-6 py-6 md:grid-cols-2 md:divide-x lg:px-8">
             <div className="py-6 md:px-6 md:py-0">
