@@ -80,6 +80,7 @@ const ProductForm: React.FC<ProductFormProps> = ({
         <label className="block font-medium text-gray-200">Price</label>
         <input
           required
+          step="any"
           type="number"
           name="price"
           min="1"
