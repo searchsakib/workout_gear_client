@@ -1,5 +1,5 @@
 import {
-  checkout,
+  // checkout,
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
@@ -13,14 +13,14 @@ const Cart: React.FC = () => {
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
   const handleIncreaseQuantity = (productId: string) => {
-    const item = cartItems.find((item) => item.product._id === productId);
+    const item = cartItems.find((item: any) => item.product._id === productId);
     if (item && item.quantity < item.product.stock) {
       dispatch(increaseQuantity(productId));
     }
   };
 
   const handleDecreaseQuantity = (productId: string) => {
-    const item = cartItems.find((item) => item.product._id === productId);
+    const item = cartItems.find((item: any) => item.product._id === productId);
     if (item && item.quantity > 1) {
       dispatch(decreaseQuantity(productId));
     }
@@ -34,15 +34,15 @@ const Cart: React.FC = () => {
     }
   };
 
-  const handleCheckout = () => {
-    dispatch(checkout());
-    alert(
-      "Order placed successfully. Quantity has been deducted from product stock.",
-    );
-  };
+  // const handleCheckout = () => {
+  //   dispatch(checkout());
+  //   alert(
+  //     "Order placed successfully. Quantity has been deducted from product stock.",
+  //   );
+  // };
 
   const totalPrice = cartItems.reduce(
-    (total, item) => total + item.product.price * item.quantity,
+    (total: any, item: any) => total + item.product.price * item.quantity,
     0,
   );
 
@@ -57,13 +57,13 @@ const Cart: React.FC = () => {
           </Link>
         </div>
       ) : (
-        <div className="flex flex-col gap-5 md:flex-row md:gap-2">
-          <div className="w-full md:w-2/3 md:pr-4">
-            <div className="flex items-center justify-center md:items-start md:justify-normal">
-              {cartItems.map((item) => (
+        <div className="flex flex-col gap-5 md:gap-2 lg:flex-row">
+          <div className="w-full lg:w-2/3 lg:pr-4">
+            <div className="justify-normal gap-5 space-y-5 md:flex-none">
+              {cartItems.map((item: any) => (
                 <div
                   key={item.product._id}
-                  className="flex flex-col gap-5 rounded-md bg-transparent p-4 text-white shadow-md outline outline-1 md:flex-1 md:flex-row md:items-center md:justify-between md:gap-0"
+                  className="flex flex-col gap-5 rounded-md bg-transparent p-4 text-white shadow-md outline outline-1 sm:flex-1 sm:flex-row sm:items-center sm:justify-between md:gap-0"
                 >
                   <div className="flex items-center gap-5 md:gap-0">
                     <img
@@ -107,7 +107,7 @@ const Cart: React.FC = () => {
               ))}
             </div>
           </div>
-          <div className="w-full md:w-1/3 md:pl-4">
+          <div className="w-full pt-5 lg:w-1/3 lg:pt-0">
             <div className="rounded-md p-4 text-white shadow-md outline outline-1">
               <h2 className="mb-4 text-xl font-bold">Order Summary</h2>
               <div className="mb-2 flex justify-between">

@@ -9,7 +9,7 @@ import AboutUs from "@/pages/AboutUs/AboutUs";
 import ErrorPage from "@/pages/ErrorPage/ErrorPage";
 import ProductDetails from "@/pages/ProductDetails/ProductDetails";
 
-const router = createBrowserRouter([
+const router: any = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,

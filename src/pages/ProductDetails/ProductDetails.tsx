@@ -19,7 +19,7 @@ const ProductDetails: React.FC = () => {
     }
   };
 
-  const inCart = cartItems.find((item) => item.product._id === id);
+  const inCart = cartItems.find((item: any) => item.product._id === id);
   const maxQuantity = product?.data
     ? product.data.stock - (inCart?.quantity || 0)
     : 0;
