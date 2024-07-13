@@ -9,11 +9,10 @@ const SuccessPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="mb-4 text-2xl font-bold">Order Confirmation</h1>
+    <div className="container mx-auto min-h-screen p-4 text-center">
+      <h1 className="mb-4 text-2xl font-bold">Order Successful!</h1>
       <p>Thank you for your order, {userDetails.name}!</p>
       <p>We'll deliver your items to: {userDetails.address}</p>
-      <h2 className="mb-2 mt-4 text-xl font-semibold">Order Summary</h2>
       <ul>
         {cartItems.map((item) => (
           <li key={item.product._id}>
