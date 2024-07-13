@@ -25,7 +25,6 @@ const Products: React.FC = () => {
   const [sortOption, setSortOption] = useState<string>("");
 
   useEffect(() => {
-    console.log(initialProducts?.data);
     if (initialProducts?.data) {
       setProducts(initialProducts?.data);
       setFilteredProducts(initialProducts?.data);
@@ -54,19 +53,6 @@ const Products: React.FC = () => {
       sortOption,
     );
   };
-
-  // Handle price range filters
-  // const handleMinPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { value } = event.target;
-  //   setMinPrice(value);
-  //   filterProducts(searchTerm, selectedCategories, value, maxPrice, sortOption);
-  // };
-
-  // const handleMaxPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { value } = event.target;
-  //   setMaxPrice(value);
-  //   filterProducts(searchTerm, selectedCategories, minPrice, value, sortOption);
-  // };
 
   // Handle sorting by price
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -142,13 +128,13 @@ const Products: React.FC = () => {
       <Helmet>
         <title>Workout Gear | Products</title>
       </Helmet>
-      <div className="container mx-auto pb-16 pt-8">
-        <div className="mb-8 mt-5 flex justify-center">
-          <p className="mb-8 text-3xl text-white">
-            Showing {filteredProducts.length} product(s)
+      <div className="mx-auto px-3 pb-16 pt-8">
+        <div className="mb-8 mt-5 text-center">
+          <p className="mb-8 text-3xl text-white md:mb-16">
+            Showing {filteredProducts?.length} product(s)
           </p>
         </div>
-        <div className="mb-7 flex items-center justify-between">
+        <div className="mb-7 flex flex-col items-center justify-between gap-5 md:flex-row md:gap-0">
           <input
             type="text"
             placeholder="Search by product name"
@@ -156,7 +142,7 @@ const Products: React.FC = () => {
             onChange={handleSearch}
             className="mr-4 rounded-md border border-gray-300 px-4 py-2"
           />
-          <div className="flex">
+          <div className="flex flex-col items-center justify-center gap-5 md:flex-row md:gap-0">
             <div className="mr-4">
               <select
                 value={sortOption}
@@ -177,25 +163,30 @@ const Products: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-12 gap-5">
           {/* Category Filters */}
-          <div className="mb-4 flex flex-col gap-3 bg-blue-950 p-5">
-            {categories.map((category) => (
-              <label key={category} className="mr-4 inline-flex items-center">
-                <input
-                  type="checkbox"
-                  checked={selectedCategories.includes(category)}
-                  onChange={() => handleCategoryFilter(category)}
-                  className="form-checkbox h-5 w-5 text-blue-500"
-                />
-                <span className="ml-2 text-white">{category}</span>
-              </label>
-            ))}
+          <div className="col-span-12 px-5 pb-5 lg:col-span-3">
+            <div className="mb-4 flex flex-col gap-3">
+              <h2 className="pb-2 text-lg font-medium">Filter by Category</h2>
+              {categories.map((category) => (
+                <label key={category} className="mr-4 inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    checked={selectedCategories.includes(category)}
+                    onChange={() => handleCategoryFilter(category)}
+                    className="form-checkbox h-5 w-5 text-blue-500"
+                  />
+                  <span className="ml-2 capitalize text-white">{category}</span>
+                </label>
+              ))}
+            </div>
           </div>
 
-          {filteredProducts.map((product) => (
-            <ProductCard key={product?._id} product={product} />
-          ))}
+          <div className="col-span-12 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-2 lg:col-span-9 lg:grid-cols-2 xl:grid-cols-3">
+            {filteredProducts.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </div>
         </div>
       </div>
     </Container>
