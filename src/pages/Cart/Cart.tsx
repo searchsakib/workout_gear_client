@@ -1,5 +1,5 @@
+import React, { useEffect } from "react";
 import {
-  // checkout,
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
@@ -55,17 +55,25 @@ const Cart: React.FC = () => {
     });
   };
 
-  // const handleCheckout = () => {
-  //   dispatch(checkout());
-  //   alert(
-  //     "Order placed successfully. Quantity has been deducted from product stock.",
-  //   );
-  // };
-
   const totalPrice = cartItems.reduce(
     (total: any, item: any) => total + item.product.price * item.quantity,
     0,
   );
+
+  useEffect(() => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      if (cartItems.length > 0) {
+        event.preventDefault();
+        event.returnValue = "";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [cartItems]);
 
   return (
     <div className="container mx-auto min-h-screen w-full max-w-screen-xl px-3 py-8 md:px-6">
