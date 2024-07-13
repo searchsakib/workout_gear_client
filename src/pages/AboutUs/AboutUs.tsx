@@ -6,8 +6,13 @@ import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Helmet } from "react-helmet-async";
+import useBeforeUnload from "@/hooks/useBeforeUnload";
+import { useAppSelector } from "@/redux/hooks";
+import { RootState } from "@/redux/store";
 
 const AboutUs = () => {
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+  useBeforeUnload(cartItems);
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);

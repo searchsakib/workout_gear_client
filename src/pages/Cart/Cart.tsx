@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import {
   decreaseQuantity,
   increaseQuantity,
@@ -8,10 +7,12 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useBeforeUnload from "@/hooks/useBeforeUnload";
 
 const Cart: React.FC = () => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
+  useBeforeUnload(cartItems);
 
   const handleIncreaseQuantity = (productId: string) => {
     const item = cartItems.find((item: any) => item.product._id === productId);
@@ -59,21 +60,6 @@ const Cart: React.FC = () => {
     (total: any, item: any) => total + item.product.price * item.quantity,
     0,
   );
-
-  useEffect(() => {
-    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
-      if (cartItems.length > 0) {
-        event.preventDefault();
-        event.returnValue = "";
-      }
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
-  }, [cartItems]);
 
   return (
     <div className="container mx-auto min-h-screen w-full max-w-screen-xl px-3 py-8 md:px-6">

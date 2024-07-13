@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import useBeforeUnload from "@/hooks/useBeforeUnload";
 import { useGetProductByIdQuery } from "@/redux/api/baseApi";
 import { addToCart } from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -10,6 +11,7 @@ const ProductDetails: React.FC = () => {
   const { data: product, isLoading, error } = useGetProductByIdQuery(id);
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.cart.items);
+  useBeforeUnload(cartItems);
 
   const [quantity, setQuantity] = useState<number>(1);
 

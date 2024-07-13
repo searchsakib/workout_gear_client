@@ -12,8 +12,12 @@ import ProductTable from "./ProductTable";
 import Swal from "sweetalert2";
 import Container from "@/components/ui/Container";
 import { Helmet } from "react-helmet-async";
+import { RootState } from "@/redux/store";
+import useBeforeUnload from "@/hooks/useBeforeUnload";
 
 const ProductManagement: React.FC = () => {
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+  useBeforeUnload(cartItems);
   const dispatch = useAppDispatch();
   const { data: products, isLoading, error } = useGetProductsQuery(null);
   const [addProduct] = useAddProductsMutation();

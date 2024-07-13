@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import useBeforeUnload from "@/hooks/useBeforeUnload";
 import { checkout, decreaseStock } from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
@@ -9,7 +10,7 @@ const Checkout: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const cartItems = useAppSelector((state: RootState) => state.cart.items);
-
+  useBeforeUnload(cartItems);
   const [userDetails, setUserDetails] = useState<{
     name: string;
     email: string;
