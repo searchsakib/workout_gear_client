@@ -61,6 +61,17 @@ const cartSlice = createSlice({
     checkout: (state) => {
       state.items = [];
     },
+    decreaseStock: (
+      state,
+      action: PayloadAction<{ productId: string; quantity: number }>,
+    ) => {
+      const item = state.items.find(
+        (item) => item.product._id === action.payload.productId,
+      );
+      if (item) {
+        item.product.stock -= action.payload.quantity;
+      }
+    },
   },
 });
 
@@ -70,5 +81,6 @@ export const {
   decreaseQuantity,
   removeFromCart,
   checkout,
+  decreaseStock,
 } = cartSlice.actions;
 export default cartSlice.reducer;
