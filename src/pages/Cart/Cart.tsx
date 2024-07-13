@@ -98,7 +98,7 @@ const Cart: React.FC = () => {
                     </button>
                     <button
                       onClick={() => handleRemoveFromCart(item.product._id)}
-                      className="ml-4 rounded bg-red-600 px-4 py-2 text-white"
+                      className="ml-4 rounded bg-red-700 px-4 py-2 text-white hover:bg-red-800"
                     >
                       Remove
                     </button>
@@ -108,14 +108,14 @@ const Cart: React.FC = () => {
             </div>
           </div>
           <div className="w-full md:w-1/3 md:pl-4">
-            <div className="rounded-md bg-white p-4 text-black shadow-md">
+            <div className="rounded-md p-4 text-white shadow-md outline outline-1">
               <h2 className="mb-4 text-xl font-bold">Order Summary</h2>
               <div className="mb-2 flex justify-between">
                 <span>Total:</span>
                 <span className="font-bold">${totalPrice.toFixed(2)}</span>
               </div>
               <Link to="/checkout">
-                <button className="w-full rounded bg-green-600 px-4 py-2 text-white">
+                <button className="w-full rounded bg-green-700 px-4 py-2 text-white hover:bg-green-800">
                   Proceed to Checkout
                 </button>
               </Link>

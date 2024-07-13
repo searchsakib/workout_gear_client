@@ -19,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
       <p className="flex-1 text-gray-300">{product?.description}</p>
       <div className="mt-4 flex justify-end">
-        <Link to={`/products/details/${product._id}`}>
+        <Link to={`/details/${product._id}`}>
           <button className="font-base rounded-md px-4 py-2 text-white outline outline-1 hover:bg-slate-200 hover:font-medium hover:text-[#1a1a2e]">
             View Details
           </button>
