@@ -57,21 +57,21 @@ const Cart: React.FC = () => {
           </Link>
         </div>
       ) : (
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col gap-5 md:flex-row md:gap-2">
           <div className="w-full md:w-2/3 md:pr-4">
-            <div className="space-y-4">
+            <div className="flex items-center justify-center md:items-start md:justify-normal">
               {cartItems.map((item) => (
                 <div
                   key={item.product._id}
-                  className="flex items-center justify-between rounded-md bg-transparent p-4 text-white shadow-md outline outline-1"
+                  className="flex flex-col gap-5 rounded-md bg-transparent p-4 text-white shadow-md outline outline-1 md:flex-1 md:flex-row md:items-center md:justify-between md:gap-0"
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-5 md:gap-0">
                     <img
                       src={item.product.images}
                       alt={item.product.name}
                       className="h-20 w-20 rounded-md object-cover"
                     />
-                    <div className="ml-4">
+                    <div className="ml-4 flex flex-col gap-2 md:gap-1">
                       <h2 className="text-xl font-bold">{item.product.name}</h2>
                       <p className="text-gray-200">${item.product.price}</p>
                       <p className="text-gray-200">
