@@ -8,6 +8,7 @@ import Checkout from "@/pages/Checkout/Checkout";
 import AboutUs from "@/pages/AboutUs/AboutUs";
 import ErrorPage from "@/pages/ErrorPage/ErrorPage";
 import ProductDetails from "@/pages/ProductDetails/ProductDetails";
+import SuccessPage from "@/pages/SuccessPage/SuccessPage";
 
 const router: any = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router: any = createBrowserRouter([
       {
         path: "/checkout",
         element: <Checkout></Checkout>,
+      },
+      {
+        path: "/success-page",
+        element: <SuccessPage></SuccessPage>,
       },
       {
         path: "/about-us",
