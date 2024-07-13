@@ -4,6 +4,9 @@ import { useGetProductsQuery } from "@/redux/api/baseApi";
 import { TProduct } from "@/types";
 import Container from "@/components/ui/Container";
 import { Helmet } from "react-helmet-async";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import useBeforeUnload from "@/hooks/useBeforeUnload";
 
 const categories = [
   "weights",
@@ -15,6 +18,10 @@ const categories = [
 ];
 
 const Products: React.FC = () => {
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+
+  useBeforeUnload(cartItems);
+
   const { data: initialProducts, isLoading, error } = useGetProductsQuery(null);
   const [products, setProducts] = useState<TProduct[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<TProduct[]>([]);
