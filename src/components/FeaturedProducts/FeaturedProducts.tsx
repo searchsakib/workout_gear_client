@@ -46,7 +46,7 @@ const FeaturedProducts = () => {
                 </div>
                 <div className="absolute bottom-0 right-0 p-4">
                   <Link
-                    to={`/products/${product._id}`} // Replace with your actual product details page URL
+                    to={`/products/details/${product._id}`}
                     className="btn-xs rounded bg-transparent px-4 py-2 font-bold text-white outline outline-1 hover:bg-gray-100 hover:text-[#1e2054]"
                   >
                     View Details
@@ -58,7 +58,7 @@ const FeaturedProducts = () => {
         )}
         <div className="mt-3 flex justify-center">
           <Link
-            to="/products" // Replace with your actual products page URL
+            to="/products"
             className="btn btn-square btn-wide bg-gray-800 px-6 py-3 text-base font-bold text-white outline outline-1 hover:bg-gray-100 hover:text-[#1e2054]"
           >
             Explore More
