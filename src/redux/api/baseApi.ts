@@ -1,10 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-// type TUseGetProductsQuery = {
-//   url: string;
-//   method: string;
-// };
-
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({
@@ -27,14 +22,11 @@ export const baseApi = createApi({
       providesTags: ["Product"],
     }),
     addProducts: builder.mutation({
-      query: (product) => {
-        console.log("Add Product =>", product);
-        return {
-          url: "/products",
-          method: "POST",
-          body: product,
-        };
-      },
+      query: (product) => ({
+        url: "/products",
+        method: "POST",
+        body: product,
+      }),
       invalidatesTags: ["Product"],
     }),
     updateProduct: builder.mutation({

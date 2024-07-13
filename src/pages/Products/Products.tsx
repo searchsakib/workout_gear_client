@@ -117,7 +117,7 @@ const Products: React.FC = () => {
 
   if (isLoading)
     return (
-      <div className="p-3 text-center">
+      <div className="min-h-screen p-3 text-center">
         <span className="loading loading-ball loading-lg text-white"></span>
       </div>
     );

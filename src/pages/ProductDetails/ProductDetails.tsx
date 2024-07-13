@@ -1,30 +1,27 @@
-import { useParams } from "react-router-dom";
-import { RootState } from "@/redux/store";
+import Container from "@/components/ui/Container";
 import { useGetProductByIdQuery } from "@/redux/api/baseApi";
-import { useState } from "react";
 import { addToCart } from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import Container from "@/components/ui/Container";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 const ProductDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { data: product, isLoading, error } = useGetProductByIdQuery(id);
-  console.log(product);
   const dispatch = useAppDispatch();
-  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+  const cartItems = useAppSelector((state) => state.cart.items);
 
   const [quantity, setQuantity] = useState<number>(1);
 
   const handleAddToCart = () => {
     if (product?.data) {
-      dispatch(addToCart({ product, quantity }));
+      dispatch(addToCart({ product: product.data, quantity }));
     }
   };
 
-  const inCart = cartItems.find((item) => item?.product._id === id);
-  console.log(inCart);
+  const inCart = cartItems.find((item) => item.product._id === id);
   const maxQuantity = product?.data
-    ? product?.data?.stock - (inCart ? inCart.quantity : 0)
+    ? product.data.stock - (inCart?.quantity || 0)
     : 0;
 
   if (isLoading)
@@ -37,7 +34,7 @@ const ProductDetails: React.FC = () => {
 
   return (
     <Container>
-      <div className="h-screen py-10">
+      <div className="min-h-screen py-10">
         <div className="flex flex-wrap">
           <div className="w-full px-4 pb-5 md:w-1/2 md:pb-0">
             <img
