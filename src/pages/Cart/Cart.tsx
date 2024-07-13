@@ -7,6 +7,7 @@ import {
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { RootState } from "@/redux/store";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Cart: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -27,11 +28,31 @@ const Cart: React.FC = () => {
   };
 
   const handleRemoveFromCart = (productId: string) => {
-    if (
-      window.confirm("Are you sure you want to remove this item from the cart?")
-    ) {
-      dispatch(removeFromCart(productId));
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      color: "#fff",
+      iconColor: "#fff",
+      background: "#09335c",
+      showCancelButton: true,
+      confirmButtonColor: "#1e609e",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, remove from cart!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(removeFromCart(productId));
+        Swal.fire({
+          title: "Removed!",
+          text: "Product Removed From Cart.",
+          icon: "success",
+          color: "#fff",
+          iconColor: "#fff",
+          background: "#09335c",
+          confirmButtonColor: "#1e609e",
+        });
+      }
+    });
   };
 
   // const handleCheckout = () => {

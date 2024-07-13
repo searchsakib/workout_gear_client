@@ -79,7 +79,7 @@ const ProductDetails: React.FC = () => {
             <button
               onClick={handleAddToCart}
               disabled={quantity > maxQuantity || maxQuantity === 0}
-              className="rounded bg-blue-600 px-4 py-2 text-white disabled:bg-gray-400"
+              className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:bg-gray-400"
             >
               Add to Cart
             </button>
