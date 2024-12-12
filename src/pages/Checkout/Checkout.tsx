@@ -6,6 +6,15 @@ import { RootState } from "@/redux/store";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+interface ICartItem {
+  product: {
+    _id: string;
+    name: string;
+    stock: number;
+  };
+  quantity: number;
+}
+
 const Checkout: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -73,11 +82,11 @@ const Checkout: React.FC = () => {
 
   const handlePlaceOrder = () => {
     // Reduce stock for each product in the cart
-    cartItems.forEach((item: any) => {
+    cartItems.forEach((item: ICartItem) => {
       dispatch(
         decreaseStock({
-          productId: item?.product?._id,
-          quantity: item?.quantity,
+          productId: item.product._id,
+          quantity: item.quantity,
         }),
       );
     });
